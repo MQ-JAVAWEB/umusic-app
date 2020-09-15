@@ -1,0 +1,62 @@
+.play {
+  width: 100vw;
+  height: 100vh;
+  background-color: #7f7f7e;
+  position: relative;
+  overflow: hidden;
+}
+.play .back {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  cursor: pointer;
+}
+.play .play_gan {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 35%;
+  transform-origin: -20px 0;
+  transform: rotateZ(-10deg);
+  transition: all 0.3s;
+  z-index: 10;
+}
+.bofang {
+  transform: rotateZ(2deg) !important;
+}
+.play .disc {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin: 2rem auto 0.5rem;
+  background-image: url("../../assets/img/disc-ip6.png");
+  background-size: contain;
+  
+}
+
+.disc .songImg {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% ,-50%)
+}
+.songImg .img {
+  width: 48px;
+  background-image: url("../../assets/img/list_sprite.png");
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% ,-50%)
+}
+.play .lyrics ul li{
+  font-size: 0.6rem;
+  text-align: center;
+}

@@ -1,0 +1,23 @@
+.recom {
+  width: 100vw;
+  height: 100vh;
+}
+
+.recom .banner i {
+  font-size: 1.3rem;
+  font-weight: normal;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.icon-jiantou-zuo {
+  left: 0;
+}
+.icon-jiantou-you {
+  right: 0;
+}
+.recom h2{
+  margin-bottom: 0.15rem;
+  border-left: 3px solid red;
+  padding-left: 0.2rem;
+}

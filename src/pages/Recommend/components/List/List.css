@@ -1,0 +1,57 @@
+.recom_list {
+  width: 100%;
+  height: auto;
+}
+.recom_list li {
+  height: 1.3rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-left: 0.2rem;
+}
+.recom_list .list {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.recom_list li .bgi {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("../../../../assets/img/list_sprite.png");
+  background-size: 35px;
+  background-position: 0 0;
+  
+}
+.recom_list .num{
+  color: #ff1e00;
+  margin-right: 0.2rem;
+}
+.recom_list .intro i {
+  background-image: url("../../../../assets/img/index_icon_2x.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 25px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+.recom_list .intro span,.intro em{
+  font-size: 0.2rem;
+  vertical-align: bottom;
+  padding-left: 0.05rem;
+}
+.recom_list .intro span:after {
+  content: " / ";
+}
+.recom_list .intro span:nth-last-child(2):after ,.recom_list .intro span:nth-last-child(1):after{
+  content: "";
+}

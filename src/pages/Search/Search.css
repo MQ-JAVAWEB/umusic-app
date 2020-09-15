@@ -1,0 +1,41 @@
+.search{
+  width: 100vw;
+  height: 100vh;
+}
+.search .search_box {
+  width: 80%;
+  margin: 0.2rem auto;
+  background-color: #f4f4f1;
+  height: 0.7rem;
+  border-radius: 35px;
+  position: relative;
+}
+.search_box img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.15rem;
+  width: 0.35rem;
+  height: 0.35rem;
+}
+.search_box .sear_inp {
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.6rem;
+  color: #000;
+  width: 100%;
+}
+.search .gjc {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.search .gjc p {
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #000;
+  border-radius: 25px;
+  margin: 0.2rem 0.2rem;
+}
