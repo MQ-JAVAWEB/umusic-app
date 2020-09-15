@@ -66,4 +66,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-11
+
+### 0915
+使用redux-thunk状态层写的项目，还差播放歌词滚动和搜索及一些小细节
