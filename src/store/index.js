@@ -3,8 +3,8 @@ import thunk from "redux-thunk"
 import recommend from "./modules/recommend"
 import hotMusic from "./modules/hotMusic"
 import songList from "./modules/songList"
-import play, { reqLyricAction }  from "./modules/play"
-import search, { reqSearchListAction } from "./modules/search"
+import play  from "./modules/play"
+import search from "./modules/search"
 // 创建根reducer
 const reducer= combineReducers({
   recommend,
@@ -22,6 +22,6 @@ store.subscribe(()=>{
   console.log(store.getState());
 })
 // 测试
-console.log(store.dispatch(reqLyricAction(33894312)));
+// console.log(store.dispatch(reqLyricAction(33894312)));
 
 export default store

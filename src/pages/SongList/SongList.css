@@ -9,6 +9,16 @@
   height: 4.0rem;
   margin-bottom: 0.4rem;
 }
+.song_list .backgroundCover:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  background: rgba(255, 255, 255, .5);
+  filter: blur(50px);
+}
 .song_list .title_cover .back {
   position: absolute;
   left: 0.2rem;

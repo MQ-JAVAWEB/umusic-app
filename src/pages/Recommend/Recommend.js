@@ -5,6 +5,7 @@ import List from "./components/List/List"
 import Banner from './components/Banner/Banner'
 import { connect } from 'react-redux'
 import { banner,recNewSong,recSong,reqBannerListAction, reqRecNewSongListAction, reqRecSongListAction } from '../../store/modules/recommend'
+import { changePicAction, pic, reqLyricAction } from '../../store/modules/play'
  class Recommend extends Component {
   componentDidMount(){
     const {reqBanner,reqRecSong,reqRecNewSong} = this.props
@@ -20,8 +21,9 @@ import { banner,recNewSong,recSong,reqBannerListAction, reqRecNewSongListAction,
   
   play(id,pic){
     this.props.history.push("/play/"+id)
-    this.props.history.pic = pic
-
+    const {changePic,reqLyric } = this.props
+    changePic(pic)
+    reqLyric(id)
   }
 
   render() {
@@ -41,7 +43,8 @@ const mapStateToProps=state=>{
   return {
     banner:banner(state),
     recSong:recSong(state),
-    recNewSong:recNewSong(state)
+    recNewSong:recNewSong(state),
+    pic:pic(state)
   }
 }
 
@@ -49,7 +52,9 @@ const mapDispatchToProps=dispatch=>{
   return {
     reqBanner:()=>dispatch(reqBannerListAction()),
     reqRecSong:()=>dispatch(reqRecSongListAction()),
-    reqRecNewSong:()=>dispatch(reqRecNewSongListAction())
+    reqRecNewSong:()=>dispatch(reqRecNewSongListAction()),
+    changePic:(val)=>dispatch(changePicAction(val)),
+    reqLyric:(id)=>dispatch(reqLyricAction(id))
   }
 }
 

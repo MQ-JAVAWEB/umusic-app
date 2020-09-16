@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import back from "../../assets/img/back.png"
+import { changePicAction, pic } from '../../store/modules/play'
 import { reqSongListAction, songList } from '../../store/modules/songList'
 import List from "./components/List/List"
 import "./SongList.css"
@@ -17,7 +18,8 @@ class SongList extends Component {
 
   play(id,pic){
     this.props.history.push("/play/"+id)
-    this.props.history.pic = pic
+    const {changePic } = this.props
+    changePic(pic)
   }
   render() {
     const { songList } = this.props
@@ -48,13 +50,15 @@ class SongList extends Component {
 
 const mapStateToProps = state => {
   return {
-    songList: songList(state)
+    songList: songList(state),
+    pic:pic(state)
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    reqSongList: (id) => dispatch(reqSongListAction(id))
+    reqSongList: (id) => dispatch(reqSongListAction(id)),
+    changePic:(val)=>dispatch(changePicAction(val))
   }
 }
 

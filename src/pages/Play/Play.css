@@ -45,7 +45,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50% ,-50%)
+  transform: translate(-50% ,-50%);
+  z-index: 2;
 }
 .songImg .img {
   width: 48px;
@@ -54,11 +55,30 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50% ,-50%)
+  transform: translate(-50% ,-50%);
+  
+}
+.play .lyrics {
+  width: 100%;
+  height: 7.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.play .lyrics ul {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 2.48rem;
+  transition: all 1s;
 }
 .play .lyrics ul li{
   font-size: 0.3rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 1.44rem;
+  line-height: 1.4rem; */
 }
 .play .songImg .bgi {
   position: absolute;
@@ -67,4 +87,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+}
+.play .current {
+  color: green;
 }

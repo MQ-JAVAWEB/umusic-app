@@ -4,7 +4,8 @@ import searchImg from "../../assets/img/search.png"
 import { connect } from 'react-redux'
 import SongsList from "./components/List/List"
 import {Toast} from "antd-mobile"
-import { changeKeyAction, changeKeyWordsAction, changeSearchListAction, changeWordsArrAction, key, keyWords, reqSearchListAction, searchList, wordsArr } from '../../store/modules/search'
+import {  changeKeyWordsAction, changeSearchListAction, changeWordsArrAction,  keyWords, reqSearchListAction, searchList, wordsArr } from '../../store/modules/search'
+import { changePicAction, pic } from '../../store/modules/play'
 
 class Search extends Component {
 
@@ -17,13 +18,14 @@ class Search extends Component {
   keyWords(e) {
     const { changeKeyWords } = this.props
     changeKeyWords(e.target.value)
+    
   }
   search() {
     const { keyWords, reqSearchList, wordsArr, changeWordsArr } = this.props
     if (keyWords !== "") {
       
       reqSearchList(keyWords)
-      let bool = wordsArr.some(item => item == keyWords)
+      let bool = wordsArr.some(item => item === keyWords)
       if (!bool) {
         wordsArr.push(keyWords)
         changeWordsArr(wordsArr)
@@ -35,7 +37,8 @@ class Search extends Component {
   }
   play(id,pic) {
     this.props.history.push("/play/" + id)
-    this.props.history.pic = pic
+    const {changePic } = this.props
+    changePic(pic)
   }
 
   delHis(){
@@ -88,7 +91,8 @@ const mapStateToProps = state => {
   return {
     searchList: searchList(state),
     keyWords: keyWords(state),
-    wordsArr: wordsArr(state)
+    wordsArr: wordsArr(state),
+    pic:pic(state)
   }
 }
 
@@ -97,7 +101,8 @@ const mapDispatchToProps = dispatch => {
     reqSearchList: (keywords) => dispatch(reqSearchListAction(keywords)),
     changeKeyWords: (val) => dispatch(changeKeyWordsAction(val)),
     changeSearchList: (val) => dispatch(changeSearchListAction(val)),
-    changeWordsArr: (val) => dispatch(changeWordsArrAction(val))
+    changeWordsArr: (val) => dispatch(changeWordsArrAction(val)),
+    changePic:(val)=>dispatch(changePicAction(val))
   }
 }
 

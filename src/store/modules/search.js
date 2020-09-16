@@ -1,4 +1,4 @@
-import store from ".."
+
 import { requestSearch } from "../../utils/request"
 
 

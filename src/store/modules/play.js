@@ -6,7 +6,9 @@ import { requestLyric, requestPlay } from "../../utils/request"
 const initState = {
   playInfo: [],
   isPlay: false,
-  lyric: {}
+  lyric: {},
+  currentIndex:0,
+  pic:""
 }
 
 // reducer 改变banner
@@ -27,6 +29,17 @@ const reducer = ((state = initState, action) => {
         ...state,
         lyric: action.lyric
       }
+    case "changeCurrentIndex" :
+      return {
+        ...state,
+        currentIndex:action.currentIndex
+      }
+    case "changePic":
+      return {
+        ...state,
+        pic:action.pic
+      }
+    
     default:
       return state
   }
@@ -51,12 +64,23 @@ export const changeLyricAction = (lyric) => {
     lyric
   }
 }
+export const changeCurrentIndexAction=(currentIndex)=>{
+  return {
+    type:"changeCurrentIndex",
+    currentIndex
+  }
+}
+export const changePicAction =(pic)=>{
+  return {
+    type:"changePic",
+    pic
+  }
+}
 
 
 // request
 export const reqPlayInfoAction = (id) => {
   return (dispatch, getState) => {
-    const {playInfo} = getState().play
     
     requestPlay(id).then(res => {
       dispatch(changePlayInfoAction(res.data.data))
@@ -66,7 +90,7 @@ export const reqPlayInfoAction = (id) => {
 export const reqLyricAction = (id) => {
   return (dispatch, getState) => {
     const {lyric}= getState().play
-    if(lyric != {}){
+    if(lyric !== {}){
       dispatch(changeLyricAction({}))
     }
     requestLyric(id).then(res => {
@@ -79,5 +103,7 @@ export const reqLyricAction = (id) => {
   export const isPlay = state => state.play.isPlay
   export const playInfo = state => state.play.playInfo
   export const lyric = state=>state.play.lyric
-
+  export const currentIndex = state=>state.play.currentIndex
+  export const pic =state=> state.play.pic
+  
   export default reducer

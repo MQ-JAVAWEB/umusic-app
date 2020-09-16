@@ -32,8 +32,10 @@ export const changeSongListAction=(songList)=>{
 export const reqSongListAction=(id)=>{
   return (dispatch,getState)=>{
     const {songList} = getState().songList
-    if(songList.id){
+    if(songList.id === id){
       return
+    }else {
+      dispatch(changeSongListAction([]))
     }
     requestRecSongList(id).then(res=>{
       dispatch(changeSongListAction(res.data.playlist))
