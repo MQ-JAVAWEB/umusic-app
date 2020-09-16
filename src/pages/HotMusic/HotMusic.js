@@ -10,7 +10,6 @@ import { hotList, reqHotListAction } from '../../store/modules/hotMusic'
     reqHotList()
   }
   play(id){
-    console.log(id);
     this.props.history.push("/play/"+id)
   }
   render() {

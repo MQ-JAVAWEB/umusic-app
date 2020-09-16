@@ -71,3 +71,13 @@ export const requestSearch=(keywords)=>{
     }
   })
 }
+
+// 获取歌词
+export const requestLyric=(id)=>{
+  return axios({
+    url:"/lyric",
+    params:{
+      id
+    }
+  })
+}

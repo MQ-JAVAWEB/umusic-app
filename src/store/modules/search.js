@@ -7,7 +7,7 @@ import { requestSearch } from "../../utils/request"
 const initState={
   searchList:[],
   keyWords:"",
-  wordsArr:[]
+  wordsArr:localStorage.getItem("wordsArr")?JSON.parse(localStorage.getItem("wordsArr")):[]
 }
 
 // reducer 改变banner
@@ -23,12 +23,19 @@ const reducer=((state=initState,action)=>{
         ...state,
         keyWords:action.keyWords
       }
-    case "changeWordsArr" :{
+    case "changeWordsArr" :
+      if(action.wordsArr){
+        localStorage.setItem("wordsArr",JSON.stringify(action.wordsArr))
+      }else {
+        localStorage.removeItem("wordsArr")
+      }
       return {
         ...state,
         wordsArr:action.wordsArr
       }
-    }
+    
+    
+    
     default:
       return state
   }
@@ -52,8 +59,8 @@ export const changeWordsArrAction=(wordsArr)=>{
     type:"changeWordsArr",
     wordsArr
   }
-  
 }
+
 
 
 // request

@@ -1,6 +1,7 @@
 .search{
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .search .search_box {
   width: 80%;
@@ -38,4 +39,12 @@
   border: 1px solid #000;
   border-radius: 25px;
   margin: 0.2rem 0.2rem;
+}
+.search .del span{
+  border: 1px solid #ccc;
+  float: right;
+  margin-right: 0.25rem;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.35rem;
+  background-color: #ccc;
 }
