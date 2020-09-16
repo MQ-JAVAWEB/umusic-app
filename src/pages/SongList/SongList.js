@@ -15,8 +15,9 @@ class SongList extends Component {
     this.props.history.goBack()
   }
 
-  play(id){
+  play(id,pic){
     this.props.history.push("/play/"+id)
+    this.props.history.pic = pic
   }
   render() {
     const { songList } = this.props
@@ -35,7 +36,7 @@ class SongList extends Component {
               <h2>{songList.name}</h2>
             </div>
           </div>
-          { songList.tracks?<List list={songList} play={(id)=>this.play(id)}></List> : null}
+          { songList.tracks?<List list={songList} play={(id,pic)=>this.play(id,pic)}></List> : null}
         </div>
       ) : null
 

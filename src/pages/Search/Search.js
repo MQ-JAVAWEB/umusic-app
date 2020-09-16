@@ -33,8 +33,9 @@ class Search extends Component {
       Toast.info("请输入搜索内容",1)
     }
   }
-  play(id) {
+  play(id,pic) {
     this.props.history.push("/play/" + id)
+    this.props.history.pic = pic
   }
 
   delHis(){
@@ -53,7 +54,7 @@ class Search extends Component {
 
   render() {
     const { keyWords, searchList, wordsArr } = this.props
-
+ 
     return (
       <div className="search">
         <div className="search_box">
@@ -63,7 +64,7 @@ class Search extends Component {
         <div className="del"><span onClick={()=>this.delHis()}>删除历史</span></div>
         {
           keyWords ? (
-            searchList.songs ? <SongsList songs={searchList.songs} play={(id) => this.play(id)}></SongsList> : null
+            searchList.songs ? <SongsList songs={searchList.songs} play={(id,pic) => this.play(id,pic)}></SongsList> : null
           ) : (
 
               <div className="gjc">

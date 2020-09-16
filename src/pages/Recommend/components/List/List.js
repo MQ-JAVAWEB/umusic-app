@@ -9,7 +9,7 @@ export default function List(props) {
         {
           recNewSong.map((item, index) => {
             return (
-              <li key={item.id} onClick={()=>play(item.id)}>
+              <li key={item.id} onClick={()=>play(item.id,item.picUrl)}>
                 {showNum ? <div className="num">{item.index < 9 ? "0" + (item.index + 1) : item.index + 1}</div> : null}
                 <div className="list">
                   <p className="title">{item.name}</p>

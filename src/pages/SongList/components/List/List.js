@@ -11,7 +11,7 @@ export default function List(props) {
           
           arr.map((item, index) => {
             return (
-              <li key={item.id} onClick={()=>play(item.id)}>
+              <li key={item.id} onClick={()=>play(item.id,item.al.picUrl)}>
                 <div className="num">{index < 9 ? "0" + (index + 1) : index + 1}</div>
                 <div className="list">
                   <p className="title">{item.name}</p>

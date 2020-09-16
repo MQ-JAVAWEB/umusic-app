@@ -9,8 +9,9 @@ import { hotList, reqHotListAction } from '../../store/modules/hotMusic'
     const {reqHotList} = this.props
     reqHotList()
   }
-  play(id){
+  play(id,pic){
     this.props.history.push("/play/"+id)
+    this.props.history.pic = pic
   }
   render() {
     const {hotList} = this.props
@@ -21,7 +22,7 @@ import { hotList, reqHotListAction } from '../../store/modules/hotMusic'
               <p>更新时间:09月10日</p>
             </h2>
         </div>
-        {hotList.length>0?<HotList hotList={hotList} play={(id)=>this.play(id)}></HotList>:null}
+        {hotList.length>0?<HotList hotList={hotList} play={(id,pic)=>this.play(id,pic)}></HotList>:null}
       </div>
     )
   }

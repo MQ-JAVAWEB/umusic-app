@@ -57,9 +57,7 @@ export const changeLyricAction = (lyric) => {
 export const reqPlayInfoAction = (id) => {
   return (dispatch, getState) => {
     const {playInfo} = getState().play
-    if(playInfo.length>0){
-      return
-    }
+    
     requestPlay(id).then(res => {
       dispatch(changePlayInfoAction(res.data.data))
     })
@@ -67,6 +65,10 @@ export const reqPlayInfoAction = (id) => {
 }
 export const reqLyricAction = (id) => {
   return (dispatch, getState) => {
+    const {lyric}= getState().play
+    if(lyric != {}){
+      dispatch(changeLyricAction({}))
+    }
     requestLyric(id).then(res => {
       dispatch(changeLyricAction(res.data))
     })

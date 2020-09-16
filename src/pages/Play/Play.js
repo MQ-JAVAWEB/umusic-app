@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import back from "../../assets/img/back.png"
 import "./Play.css"
 import needle from "../../assets/img/needle-ip6.png"
-import Disc from "../../assets/img/disc-ip6.png"
-import playBtn from "../../assets/img/list_sprite.png"
 import { connect } from 'react-redux'
 import { changeIsPlayAction, isPlay, lyric, playInfo, reqLyricAction, reqPlayInfoAction } from '../../store/modules/play'
  class Play extends Component {
 
   componentDidMount(){
-    
+    console.log(this.props);
     this.getLyric()
     this.toRender()
     const {changeIsPlay,isPlay} = this.props
@@ -32,6 +30,7 @@ import { changeIsPlayAction, isPlay, lyric, playInfo, reqLyricAction, reqPlayInf
 
   formatLyric(text){
     const {lyric} = this.props
+    
     let arr = text.split("\n");
     let row = arr.length;
     let lyric_arr = []
@@ -83,12 +82,14 @@ import { changeIsPlayAction, isPlay, lyric, playInfo, reqLyricAction, reqPlayInf
   }
   render() {
     const {isPlay,playInfo,lyric} = this.props
+    let pic = this.props.history.pic
     return (
       <div className="play">
         <img src={back} className="back" onClick={()=>this.back()} alt="" />
         <img src={needle} className={!isPlay?"play_gan bofang":"play_gan"} alt=""/>
         <div className="disc" onClick={()=>this.bofang()}>
           <div className="songImg">
+            <img src={pic} className="bgi" alt=""/>
             {!isPlay?null:<div className="img"></div>}
             {playInfo.length>0?<video ref="video" src={playInfo[0].url}></video>:null}
           </div>

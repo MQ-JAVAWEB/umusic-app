@@ -9,7 +9,8 @@ export default function List(props) {
         {
           songs.map((item, index) => {
             return (
-              <li key={item.id} onClick={()=>play(item.id)}>
+              // album
+              <li key={item.id} onClick={()=>play(item.id,item.album.artist.img1v1Url)}>
                 <div className="num">{index < 9 ? "0" + (index + 1) : index + 1}</div>
                 <div className="list">
                   <p className="title">{item.name}</p>

@@ -11,14 +11,17 @@ import { banner,recNewSong,recSong,reqBannerListAction, reqRecNewSongListAction,
     reqBanner()
     reqRecSong()
     reqRecNewSong()
+    console.log(this.props);
   }
 
   toDetail(id){
     this.props.history.push("/songlist/"+id)
   }
   
-  play(id){
+  play(id,pic){
     this.props.history.push("/play/"+id)
+    this.props.history.pic = pic
+
   }
 
   render() {
@@ -27,7 +30,7 @@ import { banner,recNewSong,recSong,reqBannerListAction, reqRecNewSongListAction,
       <div className="recom">
         {banner.length>0?<Banner banners={banner} ></Banner>:null}
         {recSong.length>0?<SongStore recSong={recSong} toDetail={(id)=>this.toDetail(id)}></SongStore>:null}
-        {recNewSong.length>0?<List recNewSong={recNewSong} play={(id)=>this.play(id)}></List>:null}
+        {recNewSong.length>0?<List recNewSong={recNewSong} play={(id,pic)=>this.play(id,pic)}></List>:null}
       </div>
     )
   }
